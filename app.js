@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
-const saveButton = document.getElementsById("jsSave");
+const saveButton = document.getElementById("jsSave");
 
 const INITIAL_COLOUR = "#2c2c2c";
 const CANVAS_SIZE = 700;
@@ -14,8 +14,8 @@ canvas.height = CANVAS_SIZE;
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
-ctx.fillStyle = INITIAL_COLOUR;
 ctx.strokeStyle = INITIAL_COLOUR;
+ctx.fillStyle = INITIAL_COLOUR;
 ctx.lineWidth = 2.5;
 
 let painting = false;
@@ -74,10 +74,10 @@ function handleCM(event){
 }
 
 function handleSaveClick(){
-    const image = canvas.toDataUrl(); /* to let it generate jpeg file, then use "image/jpeg". Otherwise, it will be png. */
+    const image = canvas.toDataURL(); /* to let it generate jpeg file, then use "image/jpeg". Otherwise, it will be png. */
     const link = document.createElement("a");
     link.href = image;
-    link.download = "PaintJS[EXPORT]";
+    link.download = "PaintJS[★]";
     link.click();
 
 }
@@ -103,5 +103,5 @@ if(mode){
 }
 
 if(saveButton){
-    mode.addEventListener("click", handleSaveClick);
+    saveButton.addEventListener("click", handleSaveClick);
 }
